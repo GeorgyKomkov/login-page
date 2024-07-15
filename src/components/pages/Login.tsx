@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { login } from '../../api/login';
@@ -13,7 +13,6 @@ interface LoginFormValues {
 
 const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const formik = useFormik<LoginFormValues>({
@@ -27,8 +26,7 @@ const Login: React.FC = () => {
         .required('Это обязательное поле'),
       password: Yup.string()
         .min(6, 'Минимальное количество символов 6')
-        .max(20, 'Максимальное количество символов 20')
-        .matches(/[A-Z]/, 'Пароль должен начинаться с заглавной латинской буквы')
+        .matches(/[A-Z]/, 'Пароль должен содержать хотя бы одну заглавную букву')
         .required('Это обязательное поле'),
     }),
     onSubmit: async (values) => {
@@ -36,10 +34,9 @@ const Login: React.FC = () => {
         setLoading(true);
         const data = await login(values.email, values.password);
         console.log(data);
-        toast.success('Данные формы отправились');
+        toast.success('Вход выполнен успешно');
       } catch (error) {
-        setError('Что-то пошло не так, попробуйте позже');
-        toast.error('Что-то пошло не так, попробуйте позже');
+        toast.error('Ошибка при входе. Пожалуйста, проверьте ваши данные и попробуйте снова.');
       } finally {
         setLoading(false);
       }
@@ -54,7 +51,6 @@ const Login: React.FC = () => {
         <div>
           <label htmlFor="email" className={`input-container ${formik.touched.email && formik.errors.email ? 'has-error' : ''}`}>
             <FaEnvelope className="input-icon" />
-            
             <input
               id='email'
               name='email'
@@ -96,8 +92,6 @@ const Login: React.FC = () => {
             <a href='#'>Забыли пароль?</a>
           </div>
         </div>
-
-        {error && <div className='error-message'>{error}</div>}
 
         <button
           type='submit'
