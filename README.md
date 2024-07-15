@@ -1,47 +1,23 @@
-# Getting Started with Create React App
+Этот проект представляет собой реализацию страницы входа с использованием React, выполненную в соответствии с  макетом, представленным в [Figma](https://www.figma.com/design/wse8H77CAGMBAK5O9o5lbQ/Testtask?node-id=0-1&t=BVVlZKnZ0ALaVt6c-0). 
+Посмотреть развернутый проект [здесь](https://login-page-kd1j.onrender.com).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Используемые технологии
+- **React**: JavaScript библиотека для создания пользовательских интерфейсов.
+- **TypeScript**: Типизированный надмножество JavaScript, компилирующийся в чистый JavaScript.
+- **formik**: Библиотека для работы с формами в React.
+- **Yup**: JavaScript библиотека для создания и валидации схем данных.
+- **React Icons**: SVG иконки для популярных наборов иконок.
+- **React Toastify**: Библиотека уведомлений для React приложений.
+- **CSS**: Использование CSS для стилизации и дизайна.
 
-## Available Scripts
+## Реализованные функции
+- **Форма входа**: Создание и стилизация формы входа.
+- **Валидация формы**: Реализация валидации формы с использованием Yup.
+  - Валидация поля электронной почты для ввода корректного адреса.
+  - Валидация поля пароля с минимальной длиной шести символов, максимальной длиной 20 символов и требованием, что первый символ пароля должен быть заглавной латинской буквой
+- **Кнопка показать/скрыть пароль**: Реализация возможности скрытия и отображения введенного пароля.
+- **Управление состоянием кнопки входа**: Кнопка входа неактивна, пока не будут соблюдены все требования к вводу логина и пароля.
+- **Имитация запроса на сервер**: Написана имитация запроса на произвольный URL для отправки логина и пароля.
 
-In the project directory, you can run:
+---
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# login-page
