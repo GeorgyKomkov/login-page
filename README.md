@@ -25,7 +25,7 @@
 Email: `test@email.ru`
 Password: `Password123`
 
-(Нажмите на значения выше, чтобы скопировать их)
+
 
 ---
 
