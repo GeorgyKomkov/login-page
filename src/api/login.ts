@@ -10,13 +10,19 @@ interface LoginResponse {
 }
 
 export const login = async (email: string, password: string): Promise<LoginResponse> => {
-  try {
-    const response = await axios.post('https://false_api', {
-      email,
-      password,
-    });
-    return response.data;
-  } catch (error) {
-    throw error;
+
+  await new Promise(resolve => setTimeout(resolve, 1000)); // иммитируем фейковый запрос, делаем задержку
+
+if (email === 'test@email.ru' && password === 'Password123') {  // фейковая  проверка на успешный  запрос
+    return {
+      token: '12345',
+      user: {
+        id: '1',
+        email: email
+      }
+    };
+  } else {
+    throw new Error('Invalid email or password');
   }
+
 };
